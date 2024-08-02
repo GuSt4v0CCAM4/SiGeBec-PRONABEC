@@ -12,16 +12,19 @@ El modelo de usuarios se encarga de manejar todas las operaciones relacionadas c
 
 - **Controladores**
   - **AdminController**: Gestiona las solicitudes HTTP relacionadas con usuarios con el rol de ADMIN. Incluye métodos para crear, actualizar, obtener y eliminar usuarios, delegando la lógica correspondiente a los servicios de aplicación.
-  - **ApplicantController**: Gestiona las solicitudes HTTP relacionadas con usuarios con el rol de APPLICANT. Incluye únicamente métodos de lectura (GET), delegando la lógica a los servicios de aplicación.
+  - **RoleController**: Gestiona las solicitudes HTTP relacionadas con usuarios. Incluye métodos para crear, actualizar, obtener y eliminar usuarios, delegando la lógica correspondiente a los servicios de aplicación.
+   - **PermiseController**: Gestiona las solicitudes HTTP relacionadas con usuarios. Incluye métodos para crear, actualizar, obtener y eliminar usuarios, delegando la lógica correspondiente a los servicios de aplicación.
 
 #### 2.1.2. Capa de Dominio
 
 - **Entidades**
-  - **AcademicPerformance**: Enum que define el estado del estudiante en la beca en la cual esta inscrito.
   - **UserModel**: Entidad principal del sistema de gestión de usuarios, que incluye propiedades como Id, Name, Email y RememberKey.
+  - **PermisionModel**: Entidad principal del sistema de gestion de usuarios.
+  - **RoleModel**: Entidad principal del sistema de gestion de usuarios.
   - **AdminModel**: Entidad derivada de UserModel, que representa al usuario administrador y añade propiedades como PhoneNumber.
-  - **StudentModel**: Entidad derivada de UserModel, que representa al usuario aplicante y contiene propiedades como Applicant, Credit, ApplicantScholarShip, y ApplicantScholarShipCall.
+  - **ApplicantModel**: Entidad derivada de UserModel, que representa al usuario aplicante y contiene propiedades como Applicant, Credit, ApplicantScholarShip, y ApplicantScholarShipCall.
   - **ScholarShipModel**: Entidad que almacena información sobre los cursos llevados por el aplicante, incluyendo propiedades como Id, StudentId, y ScholarshipInfo.
+  
 
 - **Agregados**
   - **ApplicantScholarship**: Agrupa entidades y objetos de valor relacionados con los cursos de un aplicante, garantizando la consistencia interna del agregado.
@@ -35,6 +38,8 @@ El modelo de usuarios se encarga de manejar todas las operaciones relacionadas c
 - **Implementaciones de Repositorios**
   - **UserRepository**: Implementación concreta de `UserRepository`, que utiliza el contexto de la base de datos para realizar operaciones CRUD sobre los usuarios.
   - **ScholarshipRepository**: Implementación concreta de `ScholarshipRepository`, que utiliza el contexto de la base de datos para realizar operaciones CRUD sobre las becas.
+  - **PermisionRepository**:Implementación concreta de `PermisionRepository`, que utiliza el contexto de la base de datos para realizar operaciones CRUD sobre los permisos.
+  - **RoleRepository**:Implementación concreta de `RoleRepository`, que utiliza el contexto de la base de datos para realizar operaciones CRUD sobre los roles.
 
 ![Diagrama de Arquitectura DDD User](user.png)
 
