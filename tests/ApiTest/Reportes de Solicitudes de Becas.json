@@ -1,0 +1,168 @@
+import json
+
+# Crear la colección de Postman para "Reportes de solicitud de becas"
+postman_collection_reportes = {
+    "info": {
+        "name": "Reportes de solicitud de becas",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Crear solicitud de beca",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Estado HTTP es 201', function () {",
+                            "    pm.response.to.have.status(201);",
+                            "});",
+                            "pm.test('El cuerpo de la respuesta no está vacío', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.not.be.empty;",
+                            "});"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{ \"documentacion\": \"requerida\" }"
+                },
+                "url": {
+                    "raw": "http://api.ejemplo.com/becas",
+                    "protocol": "http",
+                    "host": ["api", "ejemplo", "com"],
+                    "path": ["becas"]
+                }
+            }
+        },
+        {
+            "name": "Consultar solicitud de beca",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Estado HTTP es 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test('El cuerpo de la respuesta no está vacío', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.not.be.empty;",
+                            "});"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "http://api.ejemplo.com/becas/{id}",
+                    "protocol": "http",
+                    "host": ["api", "ejemplo", "com"],
+                    "path": ["becas", "{id}"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Actualizar solicitud de beca",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Estado HTTP es 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test('El cuerpo de la respuesta no está vacío', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.not.be.empty;",
+                            "});"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{ \"documentacion\": \"actualizada\" }"
+                },
+                "url": {
+                    "raw": "http://api.ejemplo.com/becas/{id}",
+                    "protocol": "http",
+                    "host": ["api", "ejemplo", "com"],
+                    "path": ["becas", "{id}"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Eliminar solicitud de beca",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                            "pm.test('Estado HTTP es 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ]
+                    }
+                }
+            ],
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://api.ejemplo.com/becas/{id}",
+                    "protocol": "http",
+                    "host": ["api", "ejemplo", "com"],
+                    "path": ["becas", "{id}"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
