@@ -37,3 +37,27 @@ El modelo de usuarios se encarga de manejar todas las operaciones relacionadas c
   - **ScholarshipRepository**: Implementación concreta de `ScholarshipRepository`, que utiliza el contexto de la base de datos para realizar operaciones CRUD sobre las becas.
 
 ![Diagrama de Arquitectura DDD User](user.png)
+
+## 3. Escenarios de Prueba de API 
+
+### 3.1. Background: El endpoint "/api/Admin/register" es accesible y está disponible
+#### 3.1.1 Escenario 1: Registrar exitosamente un usuario administrador.
+```
+Escenario: Registrar exitosamente un usuario administrador
+      Given se proporciona una payload válida de datos
+        {
+            "fullName": "Aldo Benito Martinez",
+            "userData": {
+                "userName": "bananon",
+                "password": "Aldechi@123",
+                "confirmPassword": "Aldechi@123",
+                "role": "ADMIN"
+            },
+            "email": "aldechi001@example.com",
+            "phoneNumber": "123456789"
+        }
+
+      When se envía una solicitud POST a "/api/Admin/register/admin"
+      Then se recibe una respuesta válida con código 201
+      And se recibe un mensaje de "Admin user created successfully"
+```  
