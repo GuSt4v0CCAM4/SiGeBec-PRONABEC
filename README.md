@@ -10,6 +10,9 @@ El sistema, SiGeBec, tiene como objetivo principal facilitar el acceso y la gest
 -   Juan Diego Huamani Vilca
 -   Victor Alejandro Quicaño Miranda
 -   Kevin Joaquin Chambi Tapia
+-   Aldo Raul Martinez Choque
+-   Owen Haziel Roque Sosa
+-   Randu Cerpa Garcia
 
 ## Cliente:
 
