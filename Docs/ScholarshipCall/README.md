@@ -28,7 +28,8 @@ El modelo de Gestión de ScholarshipCall se encarga de administrar todos los asp
     -   **ApplicantRepository**: Implementación de `ApplicantRepository` y se encarga de gestionar el acceso a datos para los solicitantes utilizando sqlite como sistema de almacenamiento y Eloquent como ORM.
     -   **UserRepository**: Implementación de `UserRepository` y gestiona el acceso a datos para los usuarios utilizando SqLite.
     -   **ScholarshipRepository**: Implementa la interfaz `ScholarshipRepository` y maneja el acceso a datos para las becas en el sistema utilizando SqLite.
-        ![Diagrama de Arquitectura DDD ScholarshipCall](DDDScholarship.png)
+
+![Diagrama de Arquitectura DDD ScholarshipCall](DDDScholarship.png)
 
 ## 3. Escenarios de Prueba de API
 
