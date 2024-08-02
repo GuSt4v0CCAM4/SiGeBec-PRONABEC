@@ -1,7 +1,7 @@
 ## Sistema de Gestión de Becas (SiGeBec)
 
 ## Propósito
-El Plan de Proyecto para SiGeBec detalla las actividades, responsabilidades, y cronograma necesarios para el desarrollo e implementación de un sistema de gestión de becas para el PRONABEC. Este documento servirá como una guía para todos los miembros del equipo de trabajo, asegurando que todas las fases del proyecto se realicen de manera eficiente y dentro de los plazos establecidos. SiGeBec tiene como objetivo facilitar el proceso de solicitud y administración de becas educativas, mejorando la accesibilidad y la transparencia del PRONABEC.
+El sistema, SiGeBec, tiene como objetivo principal facilitar el acceso y la gestión de becas educativas a través de una plataforma digital interactiva, diseñada específicamente para usuarios que tengan el objetivo de ser beneficiarios (estudiantes) por la PRONABEC y otras entidades educativas en Perú. Asimismo, este sistema será utilizado por administradores de la PRONABEC para la publicación de Becas, recibimiento y evaluación de solicitudes para finalmente seleccionar a los estudiantes que se convertirán en beneficiarios.
 
 ## Alcance
 El proyecto SiGeBec abarcará las siguientes actividades y funcionalidades:
