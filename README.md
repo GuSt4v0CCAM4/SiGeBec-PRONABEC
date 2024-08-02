@@ -170,6 +170,45 @@ class AuthController extends Controller
 }
 ```
 
+### 4. Interface Segregation Principle
+Este principio establece que los clientes no deberían verse obligados a depender de interfaces que no utilizan. Esto significa que una clase no debería implementar interfaces que no necesita. El Modelo "User" implementa solo la interfaz CanResetPassword, asegurando que no dependa de interfaces innecesarias. También utiliza los traits necesarios (HasFactory, Notifiable, HasRoles, HasApiTokens), lo que demuestra una implementación cuidadosa del ISP.
+#### 1.1. Codigo:
+```php
+class User extends Authenticatable implements CanResetPassword
+{
+    use HasFactory, Notifiable, HasRoles, HasApiTokens;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    public static function applicants()
+    {
+        return self::role('applicant');
+    }
+
+    public function scholarship(): HasOne
+    {
+        return $this->hasOne(Scholarship::class);
+    }
+}
+```
+
 
 ## Pruebas de APIs
 Para realizar pruebas de las APIs, se recomienda utilizar herramientas como Postman o Insomnia. Asegúrate de que el servidor esté en funcionamiento y utiliza las siguientes rutas para probar las diferentes funcionalidades del sistema.
