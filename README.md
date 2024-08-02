@@ -1,42 +1,52 @@
-# SIGEBEC
+## Descripción General
+Este proyecto es [breve descripción del proyecto]. Aprovecha las tecnologías modernas de desarrollo web para proporcionar [principales características o funcionalidades].
 
-## Overview
-This project is a [brief description of the project]. It leverages modern web development technologies to provide [main features or functionalities].
+## Propósito
+El propósito de este proyecto es [indicar el objetivo principal del proyecto]. Se pretende [describir lo que el proyecto busca lograr o resolver].
 
-## Technologies Used
-- **Alpine.js 3.14**: A minimal framework for composing JavaScript behavior in your HTML.
-- **Composer**: A dependency manager for PHP.
-- **JavaScript**: The programming language used for client-side scripting.
-- **npm**: Node Package Manager, used for managing JavaScript packages.
-- **PHP**: A popular general-purpose scripting language that is especially suited to web development.
-- **PostCSS 8.4**: A tool for transforming CSS with JavaScript plugins.
-- **Sass 1.77**: A preprocessor scripting language that is interpreted or compiled into CSS.
-- **Tailwind CSS 3.4**: A utility-first CSS framework for rapidly building custom user interfaces.
-- **Vite 5.0**: A build tool that aims to provide a faster and leaner development experience for modern web projects.
+## Tecnologías Utilizadas
+- **Alpine.js 3.14**: Un marco minimalista para componer comportamiento de JavaScript en tu HTML.
+- **Composer**: Un gestor de dependencias para PHP.
+- **JavaScript**: El lenguaje de programación utilizado para el scripting del lado del cliente.
+- **npm**: Node Package Manager, utilizado para gestionar paquetes de JavaScript.
+- **PHP**: Un popular lenguaje de scripting de propósito general, especialmente adecuado para el desarrollo web.
+- **PostCSS 8.4**: Una herramienta para transformar CSS con plugins de JavaScript.
+- **Sass 1.77**: Un lenguaje de preprocesador que se interpreta o compila en CSS.
+- **Tailwind CSS 3.4**: Un marco CSS de utilidad primero para construir interfaces de usuario personalizadas rápidamente.
+- **Vite 5.0**: Una herramienta de construcción que busca proporcionar una experiencia de desarrollo más rápida y ligera para proyectos web modernos.
 
-## Installation Instructions
-1. **Clone the repository**:
+## Vista General de la Arquitectura
+El proyecto sigue una arquitectura moderna de desarrollo web, que incluye:
+
+- **Frontend**: Construido utilizando JavaScript, Alpine.js y Tailwind CSS para una interfaz de usuario receptiva e interactiva.
+- **Backend**: Impulsado por PHP, gestionando la lógica del lado del servidor y las interacciones con la base de datos.
+- **Herramientas de Construcción**: Vite se utiliza para empaquetar y optimizar los recursos del frontend, mientras que npm y Composer gestionan las dependencias de JavaScript y PHP respectivamente.
+- **Estilos**: PostCSS y Sass se utilizan para procesar y mejorar CSS.
+- **Gestión de Dependencias**: Composer se encarga de las dependencias de PHP y npm de las dependencias de JavaScript.
+- **Procesamiento de CSS**: PostCSS y Sass permiten escribir CSS moderno y modular, que luego es procesado para compatibilidad y optimización.
+- **Optimización y Construcción**: Vite se encarga de la construcción y optimización de los recursos del frontend, proporcionando una experiencia de desarrollo rápida y eficiente.
+
+## Instrucciones de Instalación
+1. **Clonar el repositorio**:
     ```sh
-    git clone https://github.com/yourusername/yourproject.git
-    cd yourproject
+    git clone https://github.com/tuusuario/tuproyecto.git
+    cd tuproyecto
     ```
 
-2. **Install PHP dependencies**:
+2. **Instalar dependencias de PHP**:
     ```sh
     composer install
     ```
 
-3. **Install JavaScript dependencies**:
+3. **Instalar dependencias de JavaScript**:
     ```sh
     npm install
     ```
 
-4. **Build the assets**:
+4. **Construir los recursos**:
     ```sh
     npm run build
     ```
 
-## Usage
-To start the development server, run:
-```sh
-npm run dev
+## Uso
+Para iniciar el servidor de desarrollo, ejecuta:
