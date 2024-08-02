@@ -1,0 +1,119 @@
+{
+    "info": {
+        "name": "Búsqueda y Seguimiento de Becas",
+        "_postman_id": "e9758t4p-2q75-1b0h-z72s-1955f1d9h2q3",
+        "description": "Colección de pruebas para la búsqueda y seguimiento de becas.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Obtener información de la beca",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Response should be 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test('Response should contain scholarship data', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('id_beca');",
+                            "    pm.expect(jsonData).to.have.property('nombre_beca');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/becas/{{id_beca}}",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "becas",
+                        "{{id_beca}}"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener seguimiento de la solicitud de beca",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Response should be 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test('Response should contain application tracking data', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('id_solicitud');",
+                            "    pm.expect(jsonData).to.have.property('estado_solicitud');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/solicitudes/{{id_solicitud}}/seguimiento",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "solicitudes",
+                        "{{id_solicitud}}",
+                        "seguimiento"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://tuapi.com",
+            "type": "string"
+        },
+        {
+            "key": "auth_token",
+            "value": "<tu_token_de_autenticación>",
+            "type": "string"
+        }
+    ]
+}
