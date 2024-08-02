@@ -4,7 +4,7 @@
 El Plan de Proyecto para SiGeBec detalla las actividades, responsabilidades, y cronograma necesarios para el desarrollo e implementación de un sistema de gestión de becas para el PRONABEC. Este documento servirá como una guía para todos los miembros del equipo de trabajo, asegurando que todas las fases del proyecto se realicen de manera eficiente y dentro de los plazos establecidos. SiGeBec tiene como objetivo facilitar el proceso de solicitud y administración de becas educativas, mejorando la accesibilidad y la transparencia del PRONABEC.
 
 ## Alcance
-El proyecto SiGeBec abarcará las siguientes actividades y funcionalidades: Desarrollo del Sistema de Gestión de Usuarios: Registro y autenticación de usuarios (estudiantes, padres, docentes, administradores).
+El proyecto SiGeBec abarcará las siguientes actividades y funcionalidades:
 
 1. **Desarrollo del Sistema de Gestión de Usuarios**
    - Registro y autenticación de usuarios (estudiantes, padres, docentes, administradores).
@@ -82,5 +82,12 @@ El proyecto sigue una arquitectura moderna de desarrollo web, que incluye:
     npm run build
     ```
 
-## Uso
-Para iniciar el servidor de desarrollo, ejecuta:
+
+## Pruebas de APIs
+Para realizar pruebas de las APIs, se recomienda utilizar herramientas como Postman o Insomnia. Asegúrate de que el servidor esté en funcionamiento y utiliza las siguientes rutas para probar las diferentes funcionalidades del sistema.
+
+## Pruebas de Rendimiento
+Para evaluar el rendimiento del sistema, se pueden utilizar herramientas como Apache JMeter o k6. Estas herramientas permiten simular múltiples usuarios y medir el tiempo de respuesta del sistema bajo diferentes cargas.
+
+## Pruebas de Seguridad
+Para garantizar la seguridad del sistema, se deben realizar pruebas de penetración y análisis de vulnerabilidades utilizando herramientas como OWASP ZAP o Burp Suite. Estas pruebas ayudarán a identificar y corregir posibles fallos de seguridad en el sistema.
