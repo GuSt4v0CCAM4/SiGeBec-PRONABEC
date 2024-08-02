@@ -1,7 +1,3 @@
-import json
-
-# Crear la colección de Postman para "Reportes de solicitud de becas"
-postman_collection_reportes = {
     "info": {
         "name": "Reportes de solicitud de becas",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"

@@ -6,7 +6,10 @@ El sistema, SiGeBec, tiene como objetivo principal facilitar el acceso y la gest
 
 ## Equipo:
 
--Gustavo Ccama Marron
+-   Gustavo Ccama Marron
+-   Juan Diego Huamani Vilca
+-   Victor Alejandro Quicaño Miranda
+-   Kevin Joaquin Chambi Tapia
 
 ## Cliente:
 

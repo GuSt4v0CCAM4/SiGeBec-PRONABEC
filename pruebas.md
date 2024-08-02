@@ -314,6 +314,36 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
   ```
 </details>
 
+## Feature: Gestion de Postulaciones de Becas
+
+### Background
+
+<details open>
+  <summary><b><i>Escenario 1:</i></b> creación de postulación con POST</summary>
+
+  ```gherkin
+  Scenario: creación de postulación con POST 
+    Given Se establece el endpoint de la API para crear postulaciones con POST
+    When Se establece el parámetro HEADER con el tipo de contenido como "application/json"
+    And se establece el cuerpo de la solicitud con los datos de la postulación
+    Then Se recibe un código de respuesta HTTP válido 201
+    And El cuerpo de la respuesta "POST" no está vacío
+```
+</details>
+
+<details open>
+  <summary><b><i>Escenario 2:</i></b> obtención de postulaciones con GET </summary>
+
+  ```gherkin
+  Scenario: obtención de postulaciones con GET
+    Given Se establece el endpoint de la API para obtener postulaciones con GET
+    When Se establece el parámetro HEADER con el tipo de contenido como "application/json"
+    And Se envía la solicitud HTTP GET
+    Then Se recibe un código de respuesta HTTP válido 200 para "GET"
+    And El cuerpo de la respuesta "GET" no está vacío
+```
+</details>
+
 
 ## Feature: Gestión de Evaluaciones y Asignación de Postulantes
 [Archivo JSON](./tests/ApiTest/GestiónDeEvaluacionesyAsignaciónDePostulantes.json)
