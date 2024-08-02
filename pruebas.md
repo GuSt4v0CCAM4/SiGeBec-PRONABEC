@@ -1,5 +1,7 @@
 ## Feature: Gestión de Usuarios
 
+[Archivo JSON](./tests/ApiTest/GestionDeUsuarios.json)
+
 En esta sección se detallan los escenarios de prueba para el servicio de gestión de usuarios, diseñados para validar el correcto funcionamiento de las diferentes operaciones del API.
 
 ### Background
