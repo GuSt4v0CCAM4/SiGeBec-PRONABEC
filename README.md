@@ -256,3 +256,8 @@ Para evaluar el rendimiento del sistema, se pueden utilizar herramientas como Ap
 
 ## Pruebas de Seguridad
 Para garantizar la seguridad del sistema, se deben realizar pruebas de penetración y análisis de vulnerabilidades utilizando herramientas como OWASP ZAP o Burp Suite. Estas pruebas ayudarán a identificar y corregir posibles fallos de seguridad en el sistema.
+
+### OWASP ZAP
+[Pruebas de APIs](public/zapTest/1.png)
+[Pruebas de APIs](public/zapTest/2.png)
+[Pruebas de APIs](public/zapTest/3.png)
