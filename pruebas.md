@@ -18,8 +18,8 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
     Then se recibe un código de respuesta HTTP 201 válido
     And el cuerpo de la respuesta contiene los datos del estudiante creado
 ```
-
 </details>
+
 ### Background
 
 - **Dado que un usuario está autenticado**
