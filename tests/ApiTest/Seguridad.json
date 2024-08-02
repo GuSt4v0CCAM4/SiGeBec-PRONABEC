@@ -1,0 +1,158 @@
+{
+    "info": {
+        "_postman_id": "aoi21b8f-6945-s3c5-a420-3lp3p3al22",
+        "name": "Seguridad",
+        "description": "Workspace de Postman para pruebas de la funcionalidad de seguridad.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Acceso a página protegida sin autenticación",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/solicitud-becas",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["solicitud-becas"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Iniciar sesión incorrecto",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"username\": \"usuario_incorrecto\", \"password\": \"contraseña_incorrecta\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/login",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Iniciar sesión correcto",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"username\": \"usuario_correcto\", \"password\": \"contraseña_correcta\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/login",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Acceso a página protegida con autenticación",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/solicitud-becas",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["solicitud-becas"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Cambio de contraseña",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"current_password\": \"contraseña_actual\", \"new_password\": \"nueva_contraseña\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/usuarios/{{id}}/cambiar-contraseña",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["usuarios", "{{id}}", "cambiar-contraseña"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Acceso a sección sin permisos suficientes",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/seccion-restringida",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["seccion-restringida"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Bloqueo de cuenta tras varios intentos fallidos",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"username\": \"usuario\", \"password\": \"contraseña_incorrecta\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/login",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["login"]
+                }
+            },
+            "response": []
+        }
+    ]
+}
