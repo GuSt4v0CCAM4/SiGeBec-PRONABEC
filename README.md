@@ -95,7 +95,7 @@ El proyecto sigue una arquitectura moderna de desarrollo web, que incluye:
 ## Principios SOLID
 ## Pruebas de APIs
 Para realizar pruebas de las APIs, se recomienda utilizar herramientas como Postman o Insomnia. Asegúrate de que el servidor esté en funcionamiento y utiliza las siguientes rutas para probar las diferentes funcionalidades del sistema.
-[Pruebas de APIs](.pruebas.md)
+[Pruebas de APIs](pruebas.md)
 
 ## Pruebas de Rendimiento
 Para evaluar el rendimiento del sistema, se pueden utilizar herramientas como Apache JMeter o k6. Estas herramientas permiten simular múltiples usuarios y medir el tiempo de respuesta del sistema bajo diferentes cargas.
