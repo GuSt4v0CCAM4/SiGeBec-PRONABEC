@@ -261,7 +261,11 @@ Para evaluar el rendimiento del sistema, se pueden utilizar herramientas como Ap
 | Ver Becas               |        100 |  13831 | 12070 | 14363 |         529.01 |  0.000% |     2.65491 |  26.70 |        0.33 |        10299.0 |
 | Solicitar Becas         |        100 |  27128 | 26649 | 27665 |         300.37 |  0.000% |     1.90905 |   9.72 |        0.46 |         5215.0 |
 | Convocatorias de Becas  |        100 |  24618 | 23383 | 26728 |        1091.58 |  0.000% |     2.04687 |  10.42 |        0.50 |         5215.0 |
+### Grafico
 
+<p align="center">
+  <img src="resources/Gráfico de Resultados.png" alt="Perspectiva" width="640px" />
+</p>
 
 ## Pruebas de Seguridad
 Para garantizar la seguridad del sistema, se deben realizar pruebas de penetración y análisis de vulnerabilidades utilizando herramientas como OWASP ZAP o Burp Suite. Estas pruebas ayudarán a identificar y corregir posibles fallos de seguridad en el sistema.
