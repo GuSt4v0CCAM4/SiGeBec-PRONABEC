@@ -169,6 +169,82 @@ class AuthController extends Controller
     }
 }
 ```
+### 2. Open/Closed Principle
+El componente CreateScholarship sigue el Open/Closed Principle (OCP), permitiendo que su funcionalidad sea extendida sin modificar el código existente. Esto se logra a través de:
+- Eventos: Usa el evento scholarship-created para permitir que otras partes del sistema escuchen y respondan sin modificar el componente.
+- Despacho de eventos: El método $this->dispatch('scholarship-created') facilita la adición de nuevas funcionalidades mediante la escucha de eventos en lugar de cambiar el código del componente.
+
+Estos enfoques aseguran que el componente sea flexible y extensible, alineándose con el OCP al estar abierto para extensión pero cerrado para modificación.
+#### 2.1. Codigo:
+```php
+class CreateScholarship extends Component
+{
+    #[Validate('required')]
+    public string $name;
+    #[Validate('required')]
+    public string $description;
+    public bool $modalOpen = false;
+
+    #[On('scholarship-created')]
+    public function closeModal()
+    {
+        $this->modalOpen = false;
+    }
+
+    public function render()
+    {
+        return view('livewire.modals.create-scholarship');
+    }
+
+    public function createscholarship()
+    {
+        $this->validate();
+        Scholarship::create($this->pull());
+        $this->reset();
+        $this->description = '';
+        $this->dispatch('scholarship-created', ['message' => 'Scholarship created successfully!']);
+    }
+}
+```
+
+### 4. Interface Segregation Principle
+Este principio establece que los clientes no deberían verse obligados a depender de interfaces que no utilizan. Esto significa que una clase no debería implementar interfaces que no necesita. El Modelo "User" implementa solo la interfaz CanResetPassword, asegurando que no dependa de interfaces innecesarias. También utiliza los traits necesarios (HasFactory, Notifiable, HasRoles, HasApiTokens), lo que demuestra una implementación cuidadosa del ISP.
+#### 4.1. Codigo:
+```php
+class User extends Authenticatable implements CanResetPassword
+{
+    use HasFactory, Notifiable, HasRoles, HasApiTokens;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    public static function applicants()
+    {
+        return self::role('applicant');
+    }
+
+    public function scholarship(): HasOne
+    {
+        return $this->hasOne(Scholarship::class);
+    }
+}
+```
 
 
 ## Pruebas de APIs
@@ -180,3 +256,8 @@ Para evaluar el rendimiento del sistema, se pueden utilizar herramientas como Ap
 
 ## Pruebas de Seguridad
 Para garantizar la seguridad del sistema, se deben realizar pruebas de penetración y análisis de vulnerabilidades utilizando herramientas como OWASP ZAP o Burp Suite. Estas pruebas ayudarán a identificar y corregir posibles fallos de seguridad en el sistema.
+
+### OWASP ZAP
+![Pruebas de rendimiento OWASP 1](public/zapTest/1.png)
+![Pruebas de rendimiento OWASP 2](public/zapTest/2.png)
+![Pruebas de rendimiento OWASP 3](public/zapTest/3.png)
