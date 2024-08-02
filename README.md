@@ -10,7 +10,7 @@ PRONABEC
 ## Perspectiva de Producto
 
 <p align="center">
-  <img src="resources/perspectiva.png" alt="Perspectiva" width="360px" />
+  <img src="resources/perspectiva.png" alt="Perspectiva" width="640px" />
 </p>
 
 ## Alcance
@@ -92,7 +92,7 @@ El proyecto sigue una arquitectura moderna de desarrollo web, que incluye:
     npm run build
     ```
 
-
+## Principios SOLID
 ## Pruebas de APIs
 Para realizar pruebas de las APIs, se recomienda utilizar herramientas como Postman o Insomnia. Asegúrate de que el servidor esté en funcionamiento y utiliza las siguientes rutas para probar las diferentes funcionalidades del sistema.
 
