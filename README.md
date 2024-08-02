@@ -1,4 +1,6 @@
-## Sistema de Gestión de Becas (SiGeBec)
+<div align="center">
+<h1>Sistema de Gestión de Becas (SiGeBec)</h1>
+</div>
 
 ## Propósito
 
