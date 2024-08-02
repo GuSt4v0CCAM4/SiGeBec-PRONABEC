@@ -1,0 +1,230 @@
+{
+    "info": {
+        "name": "Notificaciones sobre las Becas",
+        "_postman_id": "6f3f8e8e-85a1-4c8e-8d1b-91e5c9f89630",
+        "description": "Colección de pruebas para la funcionalidad de notificaciones sobre las becas.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Configurar notificaciones personalizadas para estudiantes/administradores",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Response should be 201', function () {",
+                            "    pm.response.to.have.status(201);",
+                            "});",
+                            "",
+                            "pm.test('Response should contain notification configuration data', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('status');",
+                            "    pm.expect(jsonData.status).to.eql('success');",
+                            "    pm.expect(jsonData.data).to.have.property('preferences');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"preferences\": {\n        \"email\": true,\n        \"sms\": false,\n        \"push\": true\n    }\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/configuracion/notificaciones",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "configuracion",
+                        "notificaciones"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Obtener configuración de notificaciones de estudiantes/administradores",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Response should be 200', function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test('Response should contain notification configuration data', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('status');",
+                            "    pm.expect(jsonData.status).to.eql('success');",
+                            "    pm.expect(jsonData.data).to.have.property('preferences');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{base_url}}/configuracion/notificaciones",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "configuracion",
+                        "notificaciones"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Enviar notificación sobre el estado de la solicitud de beca",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Response should be 201', function () {",
+                            "    pm.response.to.have.status(201);",
+                            "});",
+                            "",
+                            "pm.test('Response should contain notification data', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('status');",
+                            "    pm.expect(jsonData.status).to.eql('success');",
+                            "    pm.expect(jsonData.data).to.have.property('notificationId');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"solicitudId\": \"12345\",\n    \"estado\": \"aprobada\",\n    \"mensaje\": \"Su solicitud ha sido aprobada.\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/notificaciones/estado-solicitud",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notificaciones",
+                        "estado-solicitud"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Enviar recordatorio sobre eventos importantes y plazos a estudiantes",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test('Response should be 201', function () {",
+                            "    pm.response.to.have.status(201);",
+                            "});",
+                            "",
+                            "pm.test('Response should contain reminder data', function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('status');",
+                            "    pm.expect(jsonData.status).to.eql('success');",
+                            "    pm.expect(jsonData.data).to.have.property('reminderId');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"evento\": \"Fecha límite de inscripción\",\n    \"fecha\": \"2024-08-01\",\n    \"mensaje\": \"Recuerde que la fecha límite de inscripción es el 1 de agosto de 2024.\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/notificaciones/eventos",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "notificaciones",
+                        "eventos"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://tuapi.com",
+            "type": "string"
+        },
+        {
+            "key": "auth_token",
+            "value": "<tu_token_de_autenticación>",
+            "type": "string"
+        }
+    ]
+}

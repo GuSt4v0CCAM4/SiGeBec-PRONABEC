@@ -1,0 +1,119 @@
+{
+    "info": {
+      "name": "Gestión de Postulaciones de Becas",
+      "description": "Colección para probar acciones CRUD en la gestión de postulaciones de becas",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "POST creación de postulación",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"nombre\": \"Juan Perez\",\n  \"edad\": 18,\n  \"beca\": \"Ingeniería\",\n  \"documentos\": [\n    \"certificado_notas\",\n    \"carta_recomendacion\"\n  ]\n}"
+          },
+          "url": {
+            "raw": "{{url}}/solicitud_beca",
+            "host": ["{{url}}"],
+            "path": ["solicitud_beca"]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 201\", function () {",
+                "    pm.response.to.have.status(201);",
+                "});",
+                "",
+                "pm.test(\"Response body is non-empty\", function () {",
+                "    pm.expect(pm.response.text()).to.not.be.empty;",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GET obtención de postulaciones",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "{{url}}/becas_relevantes",
+            "host": ["{{url}}"],
+            "path": ["becas_relevantes"]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Response body is non-empty\", function () {",
+                "    pm.expect(pm.response.text()).to.not.be.empty;",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      },
+      {
+        "name": "GET detalles de solicitud de beca",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "{{url}}/solicitud_beca/1",
+            "host": ["{{url}}"],
+            "path": ["solicitud_beca", "1"]
+          }
+        },
+        "response": [],
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"Response body is non-empty\", function () {",
+                "    pm.expect(pm.response.text()).to.not.be.empty;",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
