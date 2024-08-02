@@ -3,6 +3,16 @@
 ## Propósito
 El sistema, SiGeBec, tiene como objetivo principal facilitar el acceso y la gestión de becas educativas a través de una plataforma digital interactiva, diseñada específicamente para usuarios que tengan el objetivo de ser beneficiarios (estudiantes) por la PRONABEC y otras entidades educativas en Perú. Asimismo, este sistema será utilizado por administradores de la PRONABEC para la publicación de Becas, recibimiento y evaluación de solicitudes para finalmente seleccionar a los estudiantes que se convertirán en beneficiarios.
 
+## Equipo:
+-Gustavo Ccama Marron
+## Cliente:
+PRONABEC
+## Perspectiva de Producto
+
+<p align="center">
+  <img src="resources/perspectiva.png" alt="Perspectiva" width="720px" />
+</p>
+
 ## Alcance
 El proyecto SiGeBec abarcará las siguientes actividades y funcionalidades:
 
