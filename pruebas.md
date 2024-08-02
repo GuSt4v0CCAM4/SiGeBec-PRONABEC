@@ -313,6 +313,10 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 
 ## Feature: Búsqueda y Seguimiento de Becas
 
+[Archivo JSON](./tests/ApiTest/BusquedaySeguimientoDeBecas.json)
+
+En esta sección se detallan los escenarios de prueba para el servicio de búsqueda y seguimiento de becas, diseñados para validar el comportamiento del sistema en relación con la obtención de información y seguimiento de las solicitudes de becas.
+
 ### Background: Usuario Autenticado
 
 <details open>
@@ -343,6 +347,10 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 </details>
 
 ## Feature: Notificaciones sobre las Becas
+
+[Archivo JSON](./tests/ApiTest/NotificacionBecas.json)
+
+En esta sección se detallan los escenarios de prueba para el servicio de notificaciones sobre las becas, diseñados para validar el comportamiento del sistema en relación con la configuración y envío de notificaciones relacionadas con las becas.
 
 ### Background: Usuario Autenticado
 
