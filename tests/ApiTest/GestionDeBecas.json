@@ -1,0 +1,222 @@
+{
+    "info": {
+        "_postman_id": "kfc27b8f-6b45-s3c5-a15b-6995e74207b0",
+        "name": "Gestión de Becas",
+        "description": "Workspace de Postman para pruebas de la funcionalidad de gestión de becas.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Acceso a página de solicitud de becas sin autenticación",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/solicitud-becas",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["solicitud-becas"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Acceso a página de solicitud de becas con autenticación",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/solicitud-becas",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["solicitud-becas"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Envío de solicitud de beca",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"data\": \"valores de la beca\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/solicitud-becas",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["solicitud-becas"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Revisión del estado de la solicitud de beca",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/estado-solicitudes",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["estado-solicitudes"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Acceso al panel de administración de becas",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/admin/becas",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["admin", "becas"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Aprobación de una solicitud de beca",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/admin/becas/{{id}}/aprobar",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["admin", "becas", "{{id}}", "aprobar"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Rechazo de una solicitud de beca",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/admin/becas/{{id}}/rechazar",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["admin", "becas", "{{id}}", "rechazar"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Actualización de información de la solicitud de beca",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"datos_actualizados\": \"valores\"}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/solicitud-becas/{{id}}",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["solicitud-becas", "{{id}}"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Cancelación de la solicitud de beca",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/solicitud-becas/{{id}}",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["solicitud-becas", "{{id}}"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Ver detalles de la beca aprobada",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{auth_token}}",
+                        "type": "text"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/becas-aprobadas",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["becas-aprobadas"]
+                }
+            },
+            "response": []
+        }
+    ]
+}
