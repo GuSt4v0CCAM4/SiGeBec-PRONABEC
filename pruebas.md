@@ -400,7 +400,9 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
     Then El sistema recibe un código de respuesta HTTP 200.
 ```
 </details>
-## Feature: Búsqueda y Seguimiento de Becas
+
+
+## Feature:  Búsqueda y Seguimiento de Becas
 
 [Archivo JSON](./tests/ApiTest/BusquedaySeguimientoDeBecas.json)
 
@@ -422,17 +424,18 @@ En esta sección se detallan los escenarios de prueba para el servicio de búsqu
 </details>
 
 ### Background: Usuario autenticado con solicitud de beca en revisión
+
 <details open>
   <summary><b><i>Escenario 2:</i></b> Obtener seguimiento de la solicitud de beca</summary>
 
-    ```gherkin
+  ```gherkin
     Scenario: Obtener seguimiento de la solicitud de beca
       Given Que se establece el endpoint de seguimiento de solicitud de beca GET para "<id_solicitud>"
       When Se establece el parámetro HEADER del tipo de contenido de la solicitud como "application/json"
       And Se envía la solicitud HTTP GET
       Then Se recibe un código de respuesta HTTP válido 200 para "GET"
       And El cuerpo de la respuesta "seguimiento de solicitud de beca" no está vacío
-    ```
+  ```
 </details>
 
 ## Feature: Notificaciones sobre las Becas
