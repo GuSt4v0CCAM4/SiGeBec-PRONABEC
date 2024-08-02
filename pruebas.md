@@ -322,6 +322,11 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 ---
 
 
+Aquí está el formato para el feature de Gestión de Evaluaciones y Asignación de Postulantes >
+
+---
+
+
 
 ## Feature: Gestión de Evaluaciones y Asignación de Postulantes
 [Archivo JSON](./tests/ApiTest/GestiónDeEvaluacionesyAsignaciónDePostulantes.json)
