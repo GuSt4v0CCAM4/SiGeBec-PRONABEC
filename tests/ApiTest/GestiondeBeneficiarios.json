@@ -1,0 +1,175 @@
+{
+    "info": {
+        "_postman_id": "c8827b8f-6b45-4f5f-a15b-4595e7e3b7b0",
+        "name": "BeneficiaryManagement",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Registro de beneficiario",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/api/users/1/beneficiary/1",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "users", "1", "beneficiary", "1"]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 201\", function () {",
+                            "    pm.response.to.have.status(201);",
+                            "});",
+                            "",
+                            "pm.test(\"Response contains updated student data\", function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('name', 'Richard');",
+                            "    pm.expect(jsonData).to.have.property('email', 'richard@example.com');",
+                            "    pm.expect(jsonData).to.have.property('beca_id', '1');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Eliminación de beneficiario",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"userId\": \"123\"\n}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/api/users/123/beneficiary",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "users", "123", "beneficiary"]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response confirms removal of beneficiary\", function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('message', 'Beca removida exitosamente');",
+                            "    pm.expect(jsonData).to.have.property('user');",
+                            "    pm.expect(jsonData.user).to.have.property('id', '123');",
+                            "    pm.expect(jsonData.user).to.not.have.property('beneficiary');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Actualización de información de la beca del beneficiario",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"becaId\": \"newBeca123\"\n}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/api/users/123/beneficiary/newBeca123",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "users", "123", "beneficiary", "newBeca123"]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response contains updated user data\", function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('user');",
+                            "    pm.expect(jsonData.user).to.have.property('id', '123');",
+                            "    pm.expect(jsonData.user).to.have.property('beneficiary');",
+                            "    pm.expect(jsonData.user.beneficiary).to.have.property('becaId', 'newBeca123');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Mostrar si un usuario es beneficiario",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/api/users/123/beneficiary",
+                    "host": ["{{baseUrl}}"],
+                    "path": ["api", "users", "123", "beneficiary"]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response contains user and beneficiary information\", function () {",
+                            "    var jsonData = pm.response.json();",
+                            "    pm.expect(jsonData).to.have.property('id', '123');",
+                            "    pm.expect(jsonData).to.have.property('beneficiary');",
+                            "    pm.expect(jsonData.beneficiary).to.be.an('object');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -371,7 +371,6 @@ Aquí está el formato para el feature de Gestión de Evaluaciones y Asignación
 - **Y que los endpoints de la API están disponibles**
 <details open>
   <summary><b><i>Escenario 1:</i></b> Registro de beneficiario.</summary>
-
   ```gherkin
   Scenario: Registro de beneficiario
     Given que se establece el endpoint POST /api/users/{userId}/beneficiary/{convocatoriaId}
@@ -424,6 +423,7 @@ Scenario: Actualización de información de la beca del beneficiario
 ```
 
 </details>
+
 ### Background
 
 -   **Dado que un usuario está autenticado**
