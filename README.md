@@ -10,7 +10,7 @@ PRONABEC
 ## Perspectiva de Producto
 
 <p align="center">
-  <img src="resources/perspectiva.png" alt="Perspectiva" width="720px" />
+  <img src="resources/perspectiva.png" alt="Perspectiva" width="360px" />
 </p>
 
 ## Alcance
