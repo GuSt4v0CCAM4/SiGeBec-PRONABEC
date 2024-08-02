@@ -65,3 +65,38 @@ Scenario: Eliminación de cuentas
   And el cuerpo de la respuesta confirma la eliminación del usuario
 ```
 </details>
+
+
+
+
+## Feature: Gestión de Evaluaciones y Asignación de Postulantes
+[Archivo JSON](./tests/ApiTest/GestiónDeEvaluacionesyAsignaciónDePostulantes.json.json)
+### Background
+
+- **Dado que el sistema de gestión de evaluaciones funcione**
+- **Y que los endpoints de la API están disponibles**
+
+<details open>
+  <summary><b><i>Escenario 1:</i></b> Evaluación de Solicitudes de Becas.</summary>
+  
+  ```gherkin
+  Scenario: Evaluación de Solicitudes de Becas
+    Given El sistema recibe solicitudes de becas de estudiantes.
+    When permite una revisión exhaustiva y personalizada de las solicitudes mediante una solicitud GET a /evaluaciones/solicitudes.
+    And se envía una solicitud POST HTTP con datos del estudiante
+    Then se recibe un código de respuesta HTTP 201 válido
+    And el cuerpo de la respuesta contiene los datos de las solicitudes.
+```
+</details>
+<details open>
+  <summary><b><i>Escenario 2:</i></b>  Asignación de Becas</summary>
+  
+  ```gherkin
+  Scenario:  Asignación de Becas
+    Given  El sistema ha clasificado las solicitudes.
+    When Identifica a los estudiantes más calificados para recibir las becas mediante una solicitud POST a /evaluaciones con los datos de los candidatos.
+    And se envía una solicitud POST HTTP con datos del estudiante
+    Then se recibe un código de respuesta HTTP 201 válido
+    And el cuerpo de la respuesta indicando la asignación exitosa.
+```
+</details>
