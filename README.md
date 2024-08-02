@@ -93,23 +93,17 @@ El proyecto sigue una arquitectura moderna de desarrollo web, que incluye:
     ```
 
 ## Principios SOLID
+
 ### 1. Single Responsibility Principle
+Este principio establece que una clase debe tener una sola responsabilidad o razón para cambiar por ejemplo "AuthController" cumple con el Single Responsibility Principle (SRP) porque cada uno de sus métodos tiene una única responsabilidad dentro del contexto de la autenticación de usuarios:
+- login: Gestiona el inicio de sesión de los usuarios.
+- logout: Se encarga de cerrar la sesión del usuario.
+- forgotPassword: Envía un enlace para restablecer la contraseña.
+- updatePassword: Actualiza la contraseña del usuario.
+
+Al mantener cada método enfocado en una tarea específica, el controlador es más fácil de entender y mantener.
 #### 1.1. Codigo:
 ```php
-<?php
-
-namespace App\Http\Controllers;
-
-use App\Http\Requests\LoginRequest;
-use App\Models\User;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-
 class AuthController extends Controller
 {
     public function login(LoginRequest $request)
