@@ -1,8 +1,42 @@
-## Descripción General
-Este proyecto es [breve descripción del proyecto]. Aprovecha las tecnologías modernas de desarrollo web para proporcionar [principales características o funcionalidades].
+## Sistema de Gestión de Becas (SiGeBec)
 
 ## Propósito
-El propósito de este proyecto es [indicar el objetivo principal del proyecto]. Se pretende [describir lo que el proyecto busca lograr o resolver].
+El Plan de Proyecto para SiGeBec detalla las actividades, responsabilidades, y cronograma necesarios para el desarrollo e implementación de un sistema de gestión de becas para el PRONABEC. Este documento servirá como una guía para todos los miembros del equipo de trabajo, asegurando que todas las fases del proyecto se realicen de manera eficiente y dentro de los plazos establecidos. SiGeBec tiene como objetivo facilitar el proceso de solicitud y administración de becas educativas, mejorando la accesibilidad y la transparencia del PRONABEC.
+
+## Alcance
+El proyecto SiGeBec abarcará las siguientes actividades y funcionalidades: Desarrollo del Sistema de Gestión de Usuarios: Registro y autenticación de usuarios (estudiantes, padres, docentes, administradores).
+
+1. **Desarrollo del Sistema de Gestión de Usuarios**
+   - Registro y autenticación de usuarios (estudiantes, padres, docentes, administradores).
+   - Gestión de perfiles y permisos según roles de usuario.
+
+2. **Sistema de Solicitud y Seguimiento de Becas**
+   - Funcionalidades para que los estudiantes puedan aplicar a becas.
+   - Subida de documentos necesarios para completar las aplicaciones.
+   - Seguimiento del estado de las aplicaciones de becas.
+
+3. **Notificaciones Automatizadas**
+   - Envío de alertas sobre fechas importantes.
+   - Notificaciones sobre cambios en el estado de las solicitudes.
+   - Otros avisos relevantes para usuarios del sistema.
+
+4. **Administración de Becas**
+   - Herramientas para que los administradores gestionen las becas.
+   - Evaluación de solicitudes de becas.
+   - Publicación de nuevos programas de becas.
+
+5. **Generación de Reportes**
+   - Capacidades para crear y visualizar informes sobre el uso del sistema.
+   - Análisis de las becas otorgadas y su impacto.
+
+6. **Seguridad de Datos**
+   - Implementación de medidas de seguridad como encriptación de datos.
+   - Autenticación de dos factores para mejorar la seguridad del acceso.
+
+7. **Compatibilidad y Usabilidad**
+   - Asegurar que el sistema sea compatible con los principales navegadores web.
+   - Adaptabilidad a dispositivos móviles.
+   - Interfaz intuitiva y fácil de usar.
 
 ## Tecnologías Utilizadas
 - **Alpine.js 3.14**: Un marco minimalista para componer comportamiento de JavaScript en tu HTML.
