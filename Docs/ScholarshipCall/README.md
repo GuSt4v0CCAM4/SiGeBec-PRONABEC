@@ -186,3 +186,7 @@ Escenario: Aplicar a una beca siendo ya beneficiario
       Then se recibe una respuesta válida con código 400
       And se recibe un mensaje de "El usuario ya es beneficiario de una beca"
 ```
+
+### Open API Documentation
+
+![PruebadeOpenAPI](Docs/imgs/Open_API.png)
