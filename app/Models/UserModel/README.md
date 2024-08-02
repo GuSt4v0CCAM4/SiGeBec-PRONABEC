@@ -36,4 +36,4 @@ El modelo de usuarios se encarga de manejar todas las operaciones relacionadas c
   - **UserRepository**: Implementación concreta de `UserRepository`, que utiliza el contexto de la base de datos para realizar operaciones CRUD sobre los usuarios.
   - **ScholarshipRepository**: Implementación concreta de `ScholarshipRepository`, que utiliza el contexto de la base de datos para realizar operaciones CRUD sobre las becas.
 
-![Diagrama de Arquitectura DDD User](public/images/user.png)
+![Diagrama de Arquitectura DDD User](user.png)
