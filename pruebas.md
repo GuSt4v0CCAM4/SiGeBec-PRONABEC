@@ -357,7 +357,9 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 - **Y que los endpoints de la API están disponibles**
 <details open>
   <summary><b><i>Escenario 1:</i></b> Registro de beneficiario.</summary>
-  ```gherkin
+  
+```gherkin
+    
   Scenario: Registro de beneficiario
     Given que se establece el endpoint POST /api/users/{userId}/beneficiary/{convocatoriaId}
     When se configura el HEADER con content type "application/json"
@@ -365,7 +367,7 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
     And se envían los datos de la convocatoria en el cuerpo de la solicitud
     Then se recibe un código de respuesta HTTP 201 válido
     And el cuerpo de la respuesta contiene los datos del estudiante actualizados con la convocatoria en la que fue aceptado
-    ````
+````
 
 </details>
 
