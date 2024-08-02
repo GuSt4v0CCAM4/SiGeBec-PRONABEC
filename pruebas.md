@@ -66,7 +66,7 @@ When se envía una solicitud DELETE HTTP
 Then se recibe un código de respuesta HTTP 200 válido
 And el cuerpo de la respuesta confirma la eliminación del usuario
 
-````
+`````
 </details>
 
 
@@ -102,7 +102,7 @@ And el cuerpo de la respuesta confirma la eliminación del usuario
 ```
 </details>
 
-Aquí tienes los escenarios de prueba para el feature de gestión de usuarios, estructurados en formato Gherkin, con un enfoque similar al que proporcionaste:
+
 
 ## Feature: Seguridad
 
@@ -192,12 +192,6 @@ En esta sección se detallan los escenarios de prueba para el servicio de seguri
   ```
 </details>
 
----
-
-
-Aquí está el formato para el feature de gestión de becas:
-
----
 
 ## Feature: Gestión de Becas
 
@@ -320,14 +314,6 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
   ```
 </details>
 
----
-
-
-Aquí está el formato para el feature de Gestión de Evaluaciones y Asignación de Postulantes >
-
----
-
-
 
 ## Feature: Gestión de Evaluaciones y Asignación de Postulantes
 [Archivo JSON](./tests/ApiTest/GestiónDeEvaluacionesyAsignaciónDePostulantes.json)
@@ -379,7 +365,7 @@ Aquí está el formato para el feature de Gestión de Evaluaciones y Asignación
     And se envían los datos de la convocatoria en el cuerpo de la solicitud
     Then se recibe un código de respuesta HTTP 201 válido
     And el cuerpo de la respuesta contiene los datos del estudiante actualizados con la convocatoria en la que fue aceptado
-````
+    ````
 
 </details>
 
@@ -442,3 +428,4 @@ Scenario: Mostrar si un usuario es beneficiario
 ```
 
 </details>
+`````
