@@ -102,8 +102,6 @@ And el cuerpo de la respuesta confirma la eliminación del usuario
 ```
 </details>
 
-
-
 ## Feature: Seguridad
 
 [Archivo JSON](./tests/ApiTest/Seguridad.json)
@@ -191,7 +189,6 @@ En esta sección se detallan los escenarios de prueba para el servicio de seguri
     Then Recibe una respuesta 423 (Locked) indicando que su cuenta ha sido bloqueada temporalmente
   ```
 </details>
-
 
 ## Feature: Gestión de Becas
 
@@ -322,7 +319,7 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
   <summary><b><i>Escenario 1:</i></b> creación de postulación con POST</summary>
 
   ```gherkin
-  Scenario: creación de postulación con POST 
+  Scenario: creación de postulación con POST
     Given Se establece el endpoint de la API para crear postulaciones con POST
     When Se establece el parámetro HEADER con el tipo de contenido como "application/json"
     And se establece el cuerpo de la solicitud con los datos de la postulación
@@ -360,18 +357,18 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
     When El usuario envía una solicitud de beca con el HEADER "Content-Type" como "application/json"
     And Incluye la documentación requerida en el cuerpo de la solicitud
     And envía una petición HTTP POST.
-    Then El sistema recibe un código de respuesta HTTP 201 
+    Then El sistema recibe un código de respuesta HTTP 201
     And El cuerpo de la respuesta contiene un identificador de la solicitud no vacío.
 ```
 </details>
 
 <details open>
   <summary><b><i>Escenario 2:</i></b>  Consultar solicitud de beca</summary>
-    
+
  ```gherkin
   Scenario: Consultar solicitud de beca
     Given El usuario tiene acceso al endpoint para consultar solicitudes de beca.
-    When El usuario consulta una solicitud de beca específica con el HEADER "Content-Type" como "application/json" 
+    When El usuario consulta una solicitud de beca específica con el HEADER "Content-Type" como "application/json"
     And Envía una petición HTTP GET.
     Then El sistema recibe un código de respuesta HTTP 200
     And El cuerpo de la respuesta contiene los detalles de la solicitud no vacíos.
@@ -380,11 +377,11 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 
 <details open>
   <summary><b><i>Escenario 3:</i></b> Actualizar solicitud de beca</summary>
-    
+
  ```gherkin
   Scenario: Actualizar solicitud de beca
     Given El usuario tiene acceso al endpoint para actualizar solicitudes de beca.
-    When El usuario envía una actualización de la solicitud de beca con el HEADER "Content-Type" como "application/json"  
+    When El usuario envía una actualización de la solicitud de beca con el HEADER "Content-Type" como "application/json"
     And Incluye la información actualizada en el cuerpo de la solicitud
     And Envía una petición HTTP PUT.
     Then El sistema recibe un código de respuesta HTTP 200
@@ -394,15 +391,112 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 
 <details open>
   <summary><b><i>Escenario 4:</i></b> Eliminar solicitud de beca</summary>
-    
+
  ```gherkin
   Scenario: Eliminar solicitud de beca
     Given El usuario tiene acceso al endpoint para eliminar solicitudes de beca.
-    When El usuario envía una solicitud para eliminar una solicitud de beca específica  
+    When El usuario envía una solicitud para eliminar una solicitud de beca específica
     And Envía una petición HTTP DELETE.
     Then El sistema recibe un código de respuesta HTTP 200.
 ```
 </details>
+## Feature: Búsqueda y Seguimiento de Becas
+
+[Archivo JSON](./tests/ApiTest/BusquedaySeguimientoDeBecas.json)
+
+En esta sección se detallan los escenarios de prueba para el servicio de búsqueda y seguimiento de becas, diseñados para validar el comportamiento del sistema en relación con la obtención de información y seguimiento de las solicitudes de becas.
+
+### Background: Usuario Autenticado
+
+<details open>
+  <summary><b><i>Escenario 1:</i></b> Obtener información de la beca</summary>
+
+  ```gherkin
+  Scenario: Obtener información de la beca
+    Given Que se establece el endpoint de beca GET para "<id_beca>"
+    When Se establece el parámetro HEADER del tipo de contenido de la solicitud como "application/json"
+    And Se envía la solicitud HTTP GET
+    Then Se recibe un código de respuesta HTTP válido 200 para "GET"
+    And El cuerpo de la respuesta "información de beca" no está vacío
+  ```
+</details>
+
+### Background: Usuario autenticado con solicitud de beca en revisión
+<details open>
+  <summary><b><i>Escenario 2:</i></b> Obtener seguimiento de la solicitud de beca</summary>
+
+    ```gherkin
+    Scenario: Obtener seguimiento de la solicitud de beca
+      Given Que se establece el endpoint de seguimiento de solicitud de beca GET para "<id_solicitud>"
+      When Se establece el parámetro HEADER del tipo de contenido de la solicitud como "application/json"
+      And Se envía la solicitud HTTP GET
+      Then Se recibe un código de respuesta HTTP válido 200 para "GET"
+      And El cuerpo de la respuesta "seguimiento de solicitud de beca" no está vacío
+    ```
+</details>
+
+## Feature: Notificaciones sobre las Becas
+
+[Archivo JSON](./tests/ApiTest/NotificacionBecas.json)
+
+En esta sección se detallan los escenarios de prueba para el servicio de notificaciones sobre las becas, diseñados para validar el comportamiento del sistema en relación con la configuración y envío de notificaciones relacionadas con las becas.
+
+### Background: Usuario Autenticado
+
+<details open>
+  <summary><b><i>Escenario 1:</i></b> Configurar notificaciones personalizadas para estudiantes</summary>
+
+  ```gherkin
+  Scenario: Configurar notificaciones personalizadas para estudiantes
+    Given Que se establece el endpoint de configuración de notificaciones POST para estudiantes
+    When Se establece el parámetro HEADER del tipo de contenido de la solicitud como "application/json"
+    And Se envía el cuerpo de la solicitud con las preferencias de notificación
+    And Se envía la solicitud HTTP POST
+    Then Se recibe un código de respuesta HTTP válido 201
+    And El cuerpo de la respuesta "configuración de notificaciones creada" no está vacío
+  ```
+</details>
+
+<details open>
+
+  <summary><b><i>Escenario 2:</i></b> Obtener configuración de notificaciones de estudiantes</summary>
+
+  ```gherkin
+      Scenario: Obtener configuración de notificaciones de estudiantes
+      Given Que se establece el endpoint de configuración de notificaciones GET para estudiantes
+      When Se establece el parámetro HEADER del tipo de contenido de la solicitud como "application/json"
+      And Se envía la solicitud HTTP GET
+      Then Se recibe un código de respuesta HTTP válido 200
+      And El cuerpo de la respuesta "configuración de notificaciones de estudiantes" no está vacío
+  ```
+</details>
+
+<details open>
+  <summary><b><i>Escenario 3:</i></b> Enviar notificación sobre el estado de la solicitud de beca</summary>
+
+  ```gherkin
+      Scenario: Enviar notificación sobre el estado de la solicitud de beca
+      Given Que se establece el endpoint de envío de notificaciones POST para estado de solicitudes
+      When Se establece el parámetro HEADER del tipo de contenido de la solicitud como "application/json"
+      And Se envía el cuerpo de la solicitud con la información del estado de la solicitud
+      And Se envía la solicitud HTTP POST
+      Then Se recibe un código de respuesta HTTP válido 201
+      And El cuerpo de la respuesta "notificación enviada" no está vacío
+  ```
+</details>
+
+<details open>
+  <summary><b><i>Escenario 4:</i></b> Enviar recordatorio sobre eventos importantes y plazos a estudiantes</summary>
+
+  ```gherkin
+      Scenario: Enviar recordatorio sobre eventos importantes y plazos a estudiantes
+      Given Que se establece el endpoint de envío de notificaciones POST para recordatorios
+      When Se establece el parámetro HEADER del tipo de contenido de la solicitud como "application/json"
+      And Se envía el cuerpo de la solicitud con la información del evento o plazo
+      And Se envía la solicitud HTTP POST
+      Then Se recibe un código de respuesta HTTP válido 201
+      And El cuerpo de la respuesta "recordatorio enviado" no está vacío
+  ```
 
 ## Feature: Gestión de Evaluaciones y Asignación de Postulantes
 [Archivo JSON](./tests/ApiTest/GestiónDeEvaluacionesyAsignaciónDePostulantes.json)
@@ -446,9 +540,9 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 - **Y que los endpoints de la API están disponibles**
 <details open>
   <summary><b><i>Escenario 1:</i></b> Registro de beneficiario.</summary>
-  
+
 ```gherkin
-    
+
   Scenario: Registro de beneficiario
     Given que se establece el endpoint POST /api/users/{userId}/beneficiary/{convocatoriaId}
     When se configura el HEADER con content type "application/json"
