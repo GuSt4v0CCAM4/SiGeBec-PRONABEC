@@ -344,6 +344,65 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 ```
 </details>
 
+## Feature: Reportes de Solicitudes de Becas
+[Archivo JSON](./tests/ApiTest/ReportesDeSolicitudesDeBecas.json)
+### Background
+
+- **Dado que el sistema está operativo**
+- **Y que los endpoints de becas están disponibles**
+
+<details open>
+  <summary><b><i>Escenario 1:</i></b> Crear solicitud de beca.</summary>
+
+  ```gherkin
+  Scenario: Crear solicitud de beca
+    Given El usuario tiene acceso al endpoint para crear solicitudes de beca.
+    When El usuario envía una solicitud de beca con el HEADER "Content-Type" como "application/json"
+    And Incluye la documentación requerida en el cuerpo de la solicitud
+    And envía una petición HTTP POST.
+    Then El sistema recibe un código de respuesta HTTP 201 
+    And El cuerpo de la respuesta contiene un identificador de la solicitud no vacío.
+```
+</details>
+
+<details open>
+  <summary><b><i>Escenario 2:</i></b>  Consultar solicitud de beca</summary>
+    
+ ```gherkin
+  Scenario: Consultar solicitud de beca
+    Given El usuario tiene acceso al endpoint para consultar solicitudes de beca.
+    When El usuario consulta una solicitud de beca específica con el HEADER "Content-Type" como "application/json" 
+    And Envía una petición HTTP GET.
+    Then El sistema recibe un código de respuesta HTTP 200
+    And El cuerpo de la respuesta contiene los detalles de la solicitud no vacíos.
+```
+</details>
+
+<details open>
+  <summary><b><i>Escenario 3:</i></b> Actualizar solicitud de beca</summary>
+    
+ ```gherkin
+  Scenario: Actualizar solicitud de beca
+    Given El usuario tiene acceso al endpoint para actualizar solicitudes de beca.
+    When El usuario envía una actualización de la solicitud de beca con el HEADER "Content-Type" como "application/json"  
+    And Incluye la información actualizada en el cuerpo de la solicitud
+    And Envía una petición HTTP PUT.
+    Then El sistema recibe un código de respuesta HTTP 200
+    And El cuerpo de la respuesta contiene los detalles actualizados de la solicitud no vacíos.
+```
+</details>
+
+<details open>
+  <summary><b><i>Escenario 4:</i></b> Eliminar solicitud de beca</summary>
+    
+ ```gherkin
+  Scenario: Eliminar solicitud de beca
+    Given El usuario tiene acceso al endpoint para eliminar solicitudes de beca.
+    When El usuario envía una solicitud para eliminar una solicitud de beca específica  
+    And Envía una petición HTTP DELETE.
+    Then El sistema recibe un código de respuesta HTTP 200.
+```
+</details>
 
 ## Feature: Gestión de Evaluaciones y Asignación de Postulantes
 [Archivo JSON](./tests/ApiTest/GestiónDeEvaluacionesyAsignaciónDePostulantes.json)
