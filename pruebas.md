@@ -312,14 +312,16 @@ En esta sección se detallan los escenarios de prueba para el servicio de gesti�
 </details>
 
 ## Feature: Gestion de Postulaciones de Becas
-
+[Archivo JSON](./tests/ApiTest/GestionDePostulacion.json)
+En esta sección se detallan los escenarios de prueba para el servicio de Postulacione de becas, diseñados para validar el sistema de postulacion a Becas 
 ### Background
-
+-**Dado el sistema de gestion de Postulacion**
+-**y que los endpoints esten disponibles**
 <details open>
   <summary><b><i>Escenario 1:</i></b> creación de postulación con POST</summary>
 
   ```gherkin
-  Scenario: creación de postulación con POST
+  Scenario: creación de postulación con POST 
     Given Se establece el endpoint de la API para crear postulaciones con POST
     When Se establece el parámetro HEADER con el tipo de contenido como "application/json"
     And se establece el cuerpo de la solicitud con los datos de la postulación
